@@ -1,3 +1,4 @@
+<?php
 /**
   @ Thiết lập các hằng dữ liệu quan trọng
   @ THEME_URL = get_stylesheet_directory() - đường dẫn tới thư mục theme
@@ -37,6 +38,7 @@
 */
 $language_folder = THEME_URL . '/languages';
 load_theme_textdomain( 'cuongdx', $language_folder );
+
 
 /*
 * Tự chèn RSS Feed links trong <head>
@@ -86,3 +88,36 @@ $sidebar = array(
    'after_title' => '</h3>'
 );
 register_sidebar( $sidebar );
+
+
+/**
+@ Thiết lập hàm hiển thị logo
+@ cuongdx_logo()
+**/
+if ( ! function_exists( 'cuongdx_logo' ) ) {
+  function cuongdx_logo() {?>
+    <div class="logo">
+ 
+      <div class="site-name">
+        <?php if ( is_home() ) {
+          printf(
+            '<h1><a href="%1$s" title="%2$s">%3$s</a></h1>',
+            get_bloginfo( 'url' ),
+            get_bloginfo( 'description' ),
+            get_bloginfo( 'sitename' )
+          );
+        } else {
+          printf(
+            '<p><a href="%1$s" title="%2$s">%3$s</a></p>',
+            get_bloginfo( 'url' ),
+            get_bloginfo( 'description' ),
+            get_bloginfo( 'sitename' )
+          );
+        } // endif ?>
+      </div>
+      <div class="site-description"><?php bloginfo( 'description' ); ?></div>
+ 
+    </div>
+  <?php }
+}
+?>
