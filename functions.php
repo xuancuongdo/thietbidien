@@ -291,4 +291,22 @@ if ( ! function_exists( 'cuongdx_entry_tag' ) ) {
     endif;
   }
 }
+
+/**
+@ Chèn CSS và Javascript vào theme
+@ sử dụng hook wp_enqueue_scripts() để hiển thị nó ra ngoài front-end
+**/
+function cuongdx_styles() {
+  /*
+   * Hàm get_stylesheet_uri() sẽ trả về giá trị dẫn đến file style.css của theme
+   * Nếu sử dụng child theme, thì file style.css này vẫn load ra từ theme mẹ
+   */
+  wp_register_style( 'main-style', get_template_directory_uri() . '/style.css', 'all' );
+  wp_register_style( 'bootstrap-style', get_template_directory_uri() . '/css/bootstrap/css/bootstrap.min.css', 'all' );
+  
+  
+  wp_enqueue_style( 'bootstrap-style' );
+  wp_enqueue_style( 'main-style' );
+}
+add_action( 'wp_enqueue_scripts', 'cuongdx_styles' );
 ?>
