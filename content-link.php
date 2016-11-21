@@ -31,7 +31,7 @@
  			 <?php
 		        printf( '<a href="%1$s" target="blank">%2$s</a>',
 		                $link,
-		                $link_description
+		                $link_description);
 		     ?>
         	 <?php ( is_single() ? cuongdx_entry_tag() : '' ); ?>
         </div>

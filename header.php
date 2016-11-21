@@ -13,9 +13,11 @@
 <body <?php body_class(); ?> > <!--Thêm class tượng trưng cho mỗi trang lên <body> để tùy biến-->
         <div id="container">
         	<header id="header">	
+                    <div id="banner">
         		<?php cuongdx_logo(); ?>
-        		<?php cuongdx_menu('primary-menu'); ?>
-
+        		
+                    </div>
+                    <?php cuongdx_menu('primary-menu'); ?>
         	</header>
 
 
