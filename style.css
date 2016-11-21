@@ -11,3 +11,59 @@
  * Textdomain: Cuongdx
  */
  
+ /*! normalize.css v1.0.0 | MIT License | git.io/normalize */
+@import url("css/core.css");
+
+*---:[GLOBAL CSS]:---*/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+        font-size: 100%;
+        font-family: Helvetica Neue, Arial, sans-serif;
+        font-color: #333333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+img {
+        max-width: 100%;
+        height: auto;
+}
+a {
+        color: #F6591C;
+        text-decoration: none;
+}
+        a:hover, a:visited, a:active {
+                color: #FF3F00;
+                text-decoration: underline;
+        }
+input,input[type="submit"],button {
+        border: 1px solid #C8C8C8 !important;
+        padding: 5px 10px;
+}
+h1 {
+        font-size: 2.2em;
+}
+h2 {
+        font-size: 2em;
+}
+h3 {
+        font-size: 1.8em;
+}
+h4 {
+        font-size: 1.55em;
+}
+h5 {
+        font-size: 1.3em;
+}
+table, table tr, table td {
+        border: 1px solid #e7e7e7;
+        padding: 8px;
+}
+
+ #container{width: 980px;    margin: 0px auto;}
+ #header{height: 100px;background: #8db349}
+ #header p{margin: 0}
