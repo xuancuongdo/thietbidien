@@ -42,7 +42,7 @@ a {
                 text-decoration: underline;
         }
 input,input[type="submit"],button {
-        border: 1px solid #C8C8C8 !important;
+        /*border: 1px solid #C8C8C8 !important;*/
         padding: 5px 10px;
 }
 h1 {
@@ -131,7 +131,17 @@ table, table tr, table td {
 }
 #footer p a{color: #fff}
 
-.screen-reader-text{display: none;}
-
+.screen-reader-text,.search-box input[type="submit"]{display: none;}
+.search-box{float: right;padding: 50px 10px 0 0;}
 .search-box li{list-style: none;}
-.search-box input[type="text"]{background: #f1ffd9}
+.search-box div{border-radius: 2px;
+    background: url("img/search.png") 99% 50% no-repeat  #f1ffd9;
+    padding-right: 10px;
+}
+.search-box input[type="text"]{
+    background: none;
+    width: 95%;
+    border: none;   
+    outline: none;
+    font-size: 12px;
+}

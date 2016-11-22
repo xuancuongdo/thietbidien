@@ -15,9 +15,11 @@
         	<header id="header">	
                 <div id="banner">
         			<?php cuongdx_logo(); ?>
-        			<?php if ( is_active_sidebar( 'search-sidebar' ) ) : ?>
-                                        <div class="search-box"><?php dynamic_sidebar( 'search-sidebar' ); ?></div>
-                                <?php endif; ?>
+        			<?php //if ( is_active_sidebar( 'search-sidebar' ) ) : ?>
+                                        <div class="search-box"><?//php dynamic_sidebar( 'search-sidebar' ); ?>
+                                <?php //endif; ?> 
+                                <?php get_search_form();?>
+                                </div>
                 </div>
                 <?php cuongdx_menu('primary-menu'); ?>
         	</header>
