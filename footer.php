@@ -1,7 +1,13 @@
 <footer id="footer">
-                <div class="copyright">
-                        © <?php echo date('Y'); ?> <?php bloginfo( 'sitename' ); ?>. <?php _e('All rights reserved', 'cuongdx'); ?>. <?php _e('This website is proundly to use WordPress', 'thachpham'); ?>
-                </div>
+                <p class="copyright">
+                       Copyright  © <a href=""> <?php echo date('Y'); ?> <?php bloginfo( 'sitename' ); ?></a>
+                </p>
+                <p >
+                       <strong>Địa chỉ trụ sở:</strong><a href="">	Số 161 đường Xuân Diệu, phường Bắc Hà - thành phố Hà Tĩnh - tỉnh Hà Tĩnh</a>
+                </p>
+                <p >
+                       <strong>Điện thoại:</strong><a> (84-39) 3855 429 </a><strong>Fax:</strong><a href=""> (84-39) 3855 429</a>
+                </p>
         </footer>
 
         </div> <!--end #container -->

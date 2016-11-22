@@ -89,6 +89,16 @@ $sidebar = array(
 );
 register_sidebar( $sidebar );
 
+$sidebar_search = array(
+   'name' => __('Search sidebar', 'cuongdx'),
+   'id' => 'search-sidebar',
+   'description' => 'Search sidebar for Cuongdx theme',
+   'class' => 'search-sidebar',
+   'before_title' => '<h3 class="widgettitle">',
+   'after_title' => '</h3>'
+);
+register_sidebar( $sidebar_search );
+
 
 /**
 @ Thiết lập hàm hiển thị logo

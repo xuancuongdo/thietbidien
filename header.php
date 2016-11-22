@@ -13,11 +13,13 @@
 <body <?php body_class(); ?> > <!--Thêm class tượng trưng cho mỗi trang lên <body> để tùy biến-->
         <div id="container">
         	<header id="header">	
-                    <div id="banner">
-        		<?php cuongdx_logo(); ?>
-        		
-                    </div>
-                    <?php cuongdx_menu('primary-menu'); ?>
+                <div id="banner">
+        			<?php cuongdx_logo(); ?>
+        			<?php if ( is_active_sidebar( 'search-sidebar' ) ) : ?>
+                                        <div class="search-box"><?php dynamic_sidebar( 'search-sidebar' ); ?></div>
+                                <?php endif; ?>
+                </div>
+                <?php cuongdx_menu('primary-menu'); ?>
         	</header>
 
 
