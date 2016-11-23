@@ -21,7 +21,7 @@
                                 <?php get_search_form();?>
                                 </div>
                 </div>
-                <?php cuongdx_menu('primary-menu'); ?>
+                
         	</header>
-
+            <?php cuongdx_menu('primary-menu'); ?>
 

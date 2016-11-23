@@ -72,7 +72,7 @@ table, table tr, table td {
     /*padding: 0px 8px;*/
     background: #f1ffd9;
 }
- #header{height: 150px;}
+ #header{height: 100px;}
  #banner{height: 100px;background: #8db349}
  #header p, #header h1{margin: 0}
  .logo{
@@ -81,21 +81,21 @@ table, table tr, table td {
  .site-name h1{font-size: 18px;}
 
 /*---:[PRIMARY MENU]:---*/
-.primary-menu:after {
+/**/.primary-menu:after {
         display: table;
         content: " ";
         clear: both;
 }
-
+.primary-menu{height: 40px;}
 .primary-menu ul{
     border-top: 1px solid #ccc;
     border-bottom:  1px solid #ccc;
-	background: #01a53c;
+    background: #01a53c;
     width: 100%;
 }
 .primary-menu ul li,
 .primary-menu ul li ul li {
-	background: #01a53c;
+    background: #01a53c;
 }
 .primary-menu ul li a {
         color: #f7f7f7;
@@ -116,10 +116,14 @@ table, table tr, table td {
 }
 
 .primary-menu .sf-menu li:hover, .primary-menu .sf-menu li.sfHover{
-	background: #01a53c;
+    background: #01a53c;
 }
 
 .primary-menu .sf-menu a{    padding: .75em 2em 0.75em 0.5em;}
+.primary-menu .sf-menu{margin-bottom: 0px }
+/*----------------------end menu-----------------------------------------*/
+
+
 
 #footer{
 	/*height: 165px;*/
@@ -145,3 +149,28 @@ table, table tr, table td {
     outline: none;
     font-size: 12px;
 }
+
+.slider-wrapper.theme-custome
+{margin: 0 !important}
+
+/*------nivo-theme----------*/
+.theme-nivo-custome .nivo-controlNav{
+    display: none;
+}
+.theme-nivo-custome a.nivo-prevNav{
+    left: 15px;
+}
+
+.theme-nivo-custome .nivo-directionNav a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url(img/arrows.png) no-repeat;
+    text-indent: -9999px;
+    border: 0;
+}
+.theme-nivo-custome a.nivo-nextNav{
+    background-position: -30px 0;
+    right: 15px;
+}
+/*------end nivo thêm-------*/
