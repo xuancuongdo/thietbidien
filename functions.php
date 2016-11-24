@@ -99,7 +99,15 @@ $sidebar_search = array(
 );
 register_sidebar( $sidebar_search );
 
-
+$sidebar_gioithieu = array(
+   'name' => __('GioiThieu sidebar', 'cuongdx'),
+   'id' => 'gioithieu-sidebar',
+   'description' => 'GioiThieu sidebar for Cuongdx theme',
+   'class' => 'gioithieu-sidebar',
+   'before_title' => '<h3 class="widgettitle">',
+   'after_title' => '</h3>'
+);
+register_sidebar( $sidebar_gioithieu );
 /**
 @ Thiết lập hàm hiển thị logo
 @ cuongdx_logo()
