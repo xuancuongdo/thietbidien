@@ -8,7 +8,7 @@
 	</section>
 	<section id="main-content" class="col-md-9">
 		<section class="box row">
-			<h2 class="title">Giới thiệu</h2>
+			<div class="title"><h2 >Giới thiệu</h2></div>
 			<section class="content"> 
 				<?php if ( is_active_sidebar( 'gioithieu-sidebar' ) ) : ?>
 					<?php dynamic_sidebar( 'gioithieu-sidebar' ); ?>
@@ -22,7 +22,7 @@
 		// print_r( $post_7->post_excerpt);
 		?>
 		<section class="box row">
-			<h2 class="title">Tin tức - sự kiện</h2>
+			<div class="title"><h2 >Tin tức - sự kiện</h2></div>
 			<section class="content"> 
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', get_post_format() ); ?>

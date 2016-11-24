@@ -22,7 +22,7 @@ html {
   box-sizing: inherit;
 }
 body {
-        font-size: 100%;
+        font-size: 12px;
         font-family: Helvetica Neue, Arial, sans-serif;
         font-color: #333333;
     -webkit-font-smoothing: antialiased;
@@ -70,7 +70,7 @@ table, table tr, table td {
     margin: 0px auto;
     /*border: 1px solid #01a73d;*/
     /*padding: 0px 8px;*/
-    background: #f1ffd9;
+    background: #fff;
 }
  #header{height: 100px;}
  #banner{height: 100px;background: #8db349}
@@ -174,3 +174,33 @@ table, table tr, table td {
     right: 15px;
 }
 /*------end nivo thêm-------*/
+
+/*-----box---------*/
+.box .title{
+        color: #fff;
+    font-weight: bold;
+    padding-left: 13px;
+    font-size: 9pt;
+    height: 29px;
+    line-height: 29px;
+    background: url(img/box1-title1.png) no-repeat left top;
+    text-transform: uppercase;
+
+}
+.box .title h2 {
+    font-size: 9pt;
+    display: inline-block;
+    height: 29px;
+    line-height: 29px;
+    padding-right: 50px;
+    min-width: 300px;
+    background: url(img/box1-title11.png) no-repeat right top;
+        color: #fff;
+        text-transform: uppercase;
+        margin:0px;
+}
+.box{padding-right: 15px}
+.box .content li{list-style: none;}
+/*-----end box-----*/
+.single_post_widget a img{float: right;}
+.content{margin: 10px 0}
