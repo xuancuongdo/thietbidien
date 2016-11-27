@@ -99,6 +99,16 @@ $sidebar_search = array(
 );
 register_sidebar( $sidebar_search );
 
+$sidebar_language = array(
+   'name' => __('Language sidebar', 'cuongdx'),
+   'id' => 'language-sidebar',
+   'description' => 'Language sidebar for Cuongdx theme',
+   'class' => 'language-sidebar',
+   'before_title' => '<h3 class="widgettitle">',
+   'after_title' => '</h3>'
+);
+register_sidebar( $sidebar_language );
+
 $sidebar_gioithieu = array(
    'name' => __('GioiThieu sidebar', 'cuongdx'),
    'id' => 'gioithieu-sidebar',
@@ -108,6 +118,16 @@ $sidebar_gioithieu = array(
    'after_title' => '</h3>'
 );
 register_sidebar( $sidebar_gioithieu );
+
+$sidebar_category = array(
+   'name' => __('Category sidebar', 'cuongdx'),
+   'id' => 'category-sidebar',
+   'description' => 'Category sidebar for Cuongdx theme',
+   'class' => 'category-sidebar',
+   'before_title' => '<h3 class="widgettitle">',
+   'after_title' => '</h3>'
+);
+register_sidebar( $sidebar_category );
 /**
 @ Thiết lập hàm hiển thị logo
 @ cuongdx_logo()
@@ -172,13 +192,16 @@ if ( ! function_exists( 'cuongdx_pagination' ) ) {
   ?>
  
   <nav class="pagination" role="navigation">
-    <?php if ( get_next_post_link() ) : ?>
-      <div class="prev"><?php next_posts_link( __('Cũ hơn', 'cuongdx') ); ?></div>
-    <?php endif; ?>
+    <?php //if ( !is_page() ) : ?>
+    <div class="pagelink"><?php wp_pagenavi(); ?></div>
+    <?php// endif; ?>
+     <?php //if ( get_next_post_link() ) : ?>
+      <div class="prev"><?php //next_posts_link( __('Older', 'cuongdx') ); ?></div>
+    <?php //endif; ?>
  
-    <?php if ( get_previous_post_link() ) : ?>
-      <div class="next"><?php previous_posts_link( __('Mới hơn', 'cuongdx') ); ?></div>
-    <?php endif; ?>
+    <?php //if ( get_previous_post_link() ) : ?>
+      <div class="next"><?php //previous_posts_link( __('Newer', 'cuongdx') ); ?></div>
+    <?php //endif; ?> 
  
   </nav><?php
   }
@@ -216,11 +239,11 @@ if ( ! function_exists( 'cuongdx_entry_header' ) ) {
         </a>
       </h1>
     <?php else : ?>
-      <h2 class="entry-title">
+
         <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
           <?php the_title(); ?>
         </a>
-      </h2><?php
+    <?php
  
     endif;
   }
@@ -233,29 +256,29 @@ if ( ! function_exists( 'cuongdx_entry_header' ) ) {
 if( ! function_exists( 'cuongdx_entry_meta' ) ) {
   function cuongdx_entry_meta() {
     if ( ! is_page() ) :
-      echo '<div class="entry-meta">';
+      echo '<div class="datetime">';
  
         // Hiển thị tên tác giả, tên category và ngày tháng đăng bài
-        printf( __('<span class="author">Posted by %1$s</span>', 'cuongdx'),
-          get_the_author() );
+        // printf( __('<span class="author">Posted by %1$s</span>', 'cuongdx'),
+        //   get_the_author() );
  
-        printf( __('<span class="date-published"> at %1$s</span>', 'cuongdx'),
-          get_the_date() );
+        printf( __('<span class="date-published"> %1$s</span>', 'cuongdx'),
+          get_the_date('d/m/Y') );
  
-        printf( __('<span class="category"> in %1$s</span>', 'cuongdx'),
-          get_the_category_list( ', ' ) );
+        // printf( __('<span class="category"> in %1$s</span>', 'cuongdx'),
+        //   get_the_category_list( ', ' ) );
  
         // Hiển thị số đếm lượt bình luận
-        if ( comments_open() ) :
-          echo ' <span class="meta-reply">';
-            comments_popup_link(
-              __('Leave a comment', 'cuongdx'),
-              __('One comment', 'cuongdx'),
-              __('% comments', 'cuongdx'),
-              __('Read all comments', 'cuongdx')
-             );
-          echo '</span>';
-        endif;
+        // if ( comments_open() ) :
+        //   echo ' <span class="meta-reply">';
+        //     comments_popup_link(
+        //       __('Leave a comment', 'cuongdx'),
+        //       __('One comment', 'cuongdx'),
+        //       __('% comments', 'cuongdx'),
+        //       __('Read all comments', 'cuongdx')
+        //      );
+        //   echo '</span>';
+        // endif;
       echo '</div>';
     endif;
   }
@@ -334,11 +357,23 @@ wp_register_style( 'superfish-css', get_template_directory_uri() . '/css/superfi
 wp_enqueue_style( 'superfish-css' );
  
 /*
+* Chèn file JS của jquery
+*/
+// wp_register_script( 'jQuery', get_template_directory_uri() . '/js/bower_components/jquery/dist/jquery.js', array('jquery') );
+// wp_enqueue_script( 'jQuery' );
+
+/*
 * Chèn file JS của SuperFish Menu
 */
 wp_register_script( 'superfish-js', get_template_directory_uri() . '/js/superfish.js', array('jquery') );
 wp_enqueue_script( 'superfish-js' );
  
+/*
+* Chèn file JS của Vertical marquee
+*/
+wp_register_script( 'vertical-marquee', get_template_directory_uri() . '/js/jQuery.Marquee/jquery.marquee.min.js', array('jquery') );
+wp_enqueue_script( 'vertical-marquee' );
+
 /*
 * Chèn file JS custom.js
 */
@@ -346,4 +381,37 @@ wp_register_script( 'custom-js', get_template_directory_uri() . '/js/custom.js',
 wp_enqueue_script( 'custom-js' );
 }
 add_action( 'wp_enqueue_scripts', 'cuongdx_styles' );
+
+/*
+ * Filter the except length to 20 charactwpdocs_excerpt_moreers.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+    return 200;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+
+/**
+@ Hàm hiển thị tag của post
+@ thachpham_entry_tag()
+**/
+if ( ! function_exists( 'cuongdx_news_box_marquee' ) ) {
+  function cuongdx_news_box_marquee() {
+
+
+    $query = new WP_Query( array( 'category_name' => 'san-pham-dich-vu' ) );
+
+    while ($query->have_posts()) : $query->the_post(); 
+    echo '<a href="aaa" class="anh_bai_viet">'.
+    the_post_thumbnail(226,111,array( "title" => get_the_title(),"alt" => get_the_title() )).'</a>';                
+       endwhile ; 
+
+       wp_reset_query() ;
+           
+     }
+   }
+
 ?>

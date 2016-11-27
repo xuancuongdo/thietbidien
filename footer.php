@@ -8,6 +8,8 @@
                 <p >
                        <strong>Điện thoại:</strong><a> (84-39) 3855 429 </a><strong>Fax:</strong><a href=""> (84-39) 3855 429</a>
                 </p>
+                <a id="toTop" href="#header" style="display: inline;">Lên đầu</a>
+                <div class="clear"></div>
         </footer>
 
         </div> <!--end #container -->

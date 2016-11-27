@@ -68,12 +68,12 @@ table, table tr, table td {
  #container{
  	width: 980px;
     margin: 0px auto;
-    /*border: 1px solid #01a73d;*/
-    /*padding: 0px 8px;*/
+    border: 1px solid #01a73d;
+    padding: 0px 8px;
     background: #fff;
 }
  #header{height: 100px;}
- #banner{height: 100px;background: #8db349}
+ #banner{height: 100px;background: url(img/banner_urenco10.jpg);}
  #header p, #header h1{margin: 0}
  .logo{
     float: left;
@@ -126,21 +126,27 @@ table, table tr, table td {
 
 
 #footer{
-	/*height: 165px;*/
-	background: #07a740;
-	padding:5px 10px;
+	height: 110px;
+	background:url(img/bg-footer.png) no-repeat;
+	padding:15px;
+    margin-bottom: 15px;
 }
-#footer p{color: #aaa;
+#footer p{
+    color: #fff;
 	font-size: 12px;
 }
 #footer p a{color: #fff}
 
 .screen-reader-text,.search-box input[type="submit"]{display: none;}
-.search-box{float: right;padding: 50px 10px 0 0;}
+.search-box{
+    /*float: right;padding: 50px 10px 0 0;*/
+    margin: 5px;
+}
 .search-box li{list-style: none;}
 .search-box div{border-radius: 2px;
-    background: url("img/search.png") 99% 50% no-repeat  #f1ffd9;
+    background: url("img/search.png") 99% 50% no-repeat  #fff;
     padding-right: 10px;
+    border: 1px solid #D9D9D9;
 }
 .search-box input[type="text"]{
     background: none;
@@ -176,7 +182,7 @@ table, table tr, table td {
 /*------end nivo thêm-------*/
 
 /*-----box---------*/
-.box .title{
+.box .title,.single-post .title{
         color: #fff;
     font-weight: bold;
     padding-left: 13px;
@@ -187,7 +193,7 @@ table, table tr, table td {
     text-transform: uppercase;
 
 }
-.box .title h2 {
+.box .title h2,.single-post .title h2 {
     font-size: 9pt;
     display: inline-block;
     height: 29px;
@@ -204,3 +210,181 @@ table, table tr, table td {
 /*-----end box-----*/
 .single_post_widget a img{float: right;}
 .content{margin: 10px 0}
+.post {
+    width: auto;
+    margin-bottom: 20px;
+    display: block;
+    min-height: 50px;
+}
+
+.post .img {
+    margin-right: 10px;
+    float: left;
+    border: 1px solid #a5a5a5;
+    padding: 3px;
+}
+
+.post .title-tin {
+    font-weight: bold;
+    color: #15740e;
+}
+.post .title-tin a {
+    color: #15740e;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.date-published{
+    color: #F45E52;
+}
+
+.box-gioithieu img{
+    float: right;
+    border: none;
+}
+.box3 {
+    padding-bottom: 7px;
+    background: url(img/box3-bottom-bg1.png) no-repeat 0px 100%;
+    margin-bottom: 9px;
+}
+
+.box3 .title,.widget .widgettitle {
+    background: url(img/box3-title-bg.png) no-repeat 0px 0;
+    color: #fff;
+    height: 30px;
+    font-size: 9pt;
+    line-height: 30px;
+    position: relative;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 3px 0 0 12px;
+}
+.box3 .content{
+    /*text-align: center;*/
+}
+
+.box3 .wp-post-image {
+    height: 107px;
+    width: 222px;
+    margin: 7px auto 2px;
+    display: block;
+    border: 2px solid #666;
+}
+.box3 .wp-post-image:hover{
+    border: 2px solid #093;
+}
+.body-left {
+    width: 245px;
+    float: left;
+}
+
+.body-center {
+    width: 715px;
+    float: left;
+    padding-left: 10px;
+}
+
+.body-left li{list-style: none;margin-bottom: 20px}
+
+.marquee {
+
+  overflow: hidden;
+height: 277px;
+}
+.marquee-cotaine
+.box-marquee .content{
+    height: 277px;
+    overflow: hidden;
+}
+
+.lienketwebsite {
+    padding: 2px;
+    width: 90%;
+    margin: 7px auto 5px;
+    display: block;
+}
+
+.single-post .post .img{
+    float: none;
+    border: none;
+}
+
+.single-post .post .entry-title{
+    color: #15740e;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 5px 0px;
+}
+
+.menusp {
+    padding-top: 4px;
+}
+.menusp .menusp_lv_0 a {
+    color: #01A53C;
+    line-height: 15px;
+    display: inline-block;
+    width: 214px;
+    font-size: 9pt;
+    background: url(img/menusp-icon.png) no-repeat 13px 8px;
+    border-bottom: 1px dotted #ccc;
+    padding: 5px 0 5px 30px;
+}
+
+.search-info{margin: 10px 0;}
+
+hr {
+    border: 1px solid #ccc;
+}
+
+.Div_cactinkhac {
+    display: block;
+    font-size: 9pt;
+    overflow: hidden;
+    line-height: 22px;
+}
+
+.Div_cactinkhac a.tieude_tin {
+    color: #cc3300;
+    text-decoration: none;
+    background: url(img/bullet5.png) no-repeat 5px 8px;
+    padding-left: 20px;
+    display: block;
+}
+
+#toTop {
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    cursor: pointer;
+    display: none;
+    color: #fff;
+    padding-top: 26px;
+    background: url(img/back2top.png) no-repeat 50% 0px;
+}
+
+.page-link {
+clear: both;
+display: block;
+margin: 0 0 1.625em;
+}
+.page-link a {
+background: #eee;
+color: #373737;
+margin: 0;
+padding: 2px 3px;
+text-decoration: none;
+}
+.page-link a:hover {
+background: #888;
+color: #fff;
+font-weight: bold;
+}
+.page-link span {
+margin-right: 6px;
+}

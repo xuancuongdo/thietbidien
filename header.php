@@ -8,18 +8,23 @@
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
  
         <?php wp_head(); ?>
+    <script type="text/javascript">
+        
+    </script>
 </head>
  
 <body <?php body_class(); ?> > <!--Thêm class tượng trưng cho mỗi trang lên <body> để tùy biến-->
+        <a href="#header"></a>
         <div id="container">
         	<header id="header">	
                 <div id="banner">
-        			<?php cuongdx_logo(); ?>
-        			<?php //if ( is_active_sidebar( 'search-sidebar' ) ) : ?>
-                                        <div class="search-box"><?//php dynamic_sidebar( 'search-sidebar' ); ?>
-                                <?php //endif; ?> 
-                                <?php get_search_form();?>
-                                </div>
+        			<?php //cuongdx_logo(); ?>
+        			<?php if ( is_active_sidebar( 'language_sidebar' ) ) : ?>
+                                        <p class="language-switch"><?php dynamic_sidebar( 'language-sidebar' ); ?>
+                                        </p>
+                                <?php endif; ?> 
+
+                                
                 </div>
                 
         	</header>
