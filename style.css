@@ -66,11 +66,12 @@ table, table tr, table td {
 }
 
  #container{
- 	width: 980px;
+ 	width: 997px;
     margin: 0px auto;
     border: 1px solid #01a73d;
     padding: 0px 8px;
     background: #fff;
+    position: relative;
 }
  #header{height: 100px;}
  #banner{height: 100px;background: url(img/banner_urenco10.jpg);}
@@ -126,6 +127,7 @@ table, table tr, table td {
 
 
 #footer{
+    /*position: relative;*/
 	height: 110px;
 	background:url(img/bg-footer.png) no-repeat;
 	padding:15px;
@@ -358,7 +360,7 @@ hr {
 
 #toTop {
     text-align: center;
-    position: fixed;
+    position: absolute;
     bottom: 20px;
     right: 25px;
     cursor: pointer;
