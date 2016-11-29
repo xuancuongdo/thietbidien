@@ -11,14 +11,22 @@
 				<div class="menusp">
 						<?php 
 
-							$menu = wp_get_nav_menu_items(212,array(
+							$menus = wp_get_nav_menu_items(212,array(
 							   'posts_per_page' => -1,
 							   'meta_key' => '_menu_item_object_id',
-							   'meta_value' => $post->ID // the currently displayed post
+							   'parent' => 1793 // the currently displayed post
 							));
-
+							foreach ($menus as $menu) {
+								# code...
+								print_r($menu->title);
+								print_r($menu->ID);
+								?>
+								<a href="<?php print_r($menu->url);  ?>">link</a>
+								<hr>
+								<?php
+							}
 							print_r($menu);
-							
+
 							// $categories = get_the_category();
 							// $category_id = $categories[0]->category_parent; 
 							// if($category_id==0)$category_id=$categories[0]->cat_ID; 
