@@ -10,22 +10,31 @@
 			<div class="content">
 				<div class="menusp">
 						<?php 
-
+							$current_menu= wp_get_nav_menu_items(212,array(
+							   'posts_per_page' => -1,
+							   //'meta_key' => '_menu_item_menu_item_parent',
+							   //'meta_key' => '_menu_item_object_id',
+							   //'menu-item-parent-id' => 1793 // the currently displayed post
+							   'meta_value' => $post->ID
+							));
+							$parent_menu_ID=$current_menu[0]->menu_item_parent;
 							$menus = wp_get_nav_menu_items(212,array(
 							   'posts_per_page' => -1,
-							   'meta_key' => '_menu_item_object_id',
-							   'parent' => 1793 // the currently displayed post
+							   'meta_key' => '_menu_item_menu_item_parent',
+							   //'meta_key' => '_menu_item_object_id',
+							   //'menu-item-parent-id' => 1793 // the currently displayed post
+							   'meta_value' => $parent_menu_ID
 							));
 							foreach ($menus as $menu) {
 								# code...
 								print_r($menu->title);
 								print_r($menu->ID);
 								?>
-								<a href="<?php print_r($menu->url);  ?>">link</a>
+								<a href="<?php echo $menu->url;  ?>">link</a>
 								<hr>
 								<?php
 							}
-							print_r($menu);
+							//print_r($menu);
 
 							// $categories = get_the_category();
 							// $category_id = $categories[0]->category_parent; 

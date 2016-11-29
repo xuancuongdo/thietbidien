@@ -1,4 +1,4 @@
-<?php $id_parrent=0; ?>
+<?php $id_parrent=0; $id_current=0; ?>
 <?php get_header(); ?>
 <?php echo do_shortcode("[all-nivoslider image_link='' theme='nivo-custome' ]"); ?>
 <div class="content">
@@ -9,11 +9,18 @@
 		</div>
 		<div class="content">
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<?php $id_parrent=$post->post_parent;?>
+				<?php 
+					$id_parrent=$post->post_parent;
+					$id_current=$post->ID;
+				?>
 			<?php endwhile;
 			endif;
 			?>	
 			<?php 
+				if ($id_parrent==0) {
+					# code...
+
+				}
 				$query = new WP_Query( array( 'post_parent' => $id_parrent,'post_type' => 'page' ) );
 
 				while ($query->have_posts()) : $query->the_post(); 
