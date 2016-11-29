@@ -217,7 +217,7 @@ if ( ! function_exists( 'cuongdx_thumbnail' ) ) {
   function cuongdx_thumbnail( $size ) {
  
     // Chỉ hiển thumbnail với post không có mật khẩu
-    if ( ! is_single() &&  has_post_thumbnail()  && ! post_password_required() || has_post_format( 'image' ) ) : ?>
+    if ( ! is_single() && !is_page() &&  has_post_thumbnail()  && ! post_password_required() || has_post_format( 'image' ) ) : ?>
       <figure class="post-thumbnail"><?php the_post_thumbnail( $size ); ?></figure><?php
     endif;
   }
@@ -231,7 +231,7 @@ if ( ! function_exists( 'cuongdx_thumbnail' ) ) {
 **/
 if ( ! function_exists( 'cuongdx_entry_header' ) ) {
   function cuongdx_entry_header() {
-    if ( is_single() ) : ?>
+    if ( is_single() || is_page()) : ?>
  
       <h1 class="entry-title">
         <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
@@ -300,12 +300,18 @@ add_filter( 'excerpt_more', 'cuongdx_readmore' );
 **/
 if ( ! function_exists( 'cuongdx_entry_content' ) ) {
   function cuongdx_entry_content() {
- 
-    if ( ! is_single() ) :
-      the_excerpt();
-    else :
+
+    if ( is_single()  ) :
       the_content();
- 
+      
+    else:
+    
+     if (is_page()):
+
+      the_content();
+    else:
+      the_excerpt();
+      endif;
       /*
        * Code hiển thị phân trang trong post type
        */
@@ -315,9 +321,9 @@ if ( ! function_exists( 'cuongdx_entry_content' ) ) {
         'nextpagelink'     => __( 'Next page', 'cuongdx' ),
         'previouspagelink' => __( 'Previous page', 'cuongdx' )
       );
-      wp_link_pages( $link_pages );
+      //wp_link_pages( $link_pages );
     endif;
- 
+
   }
 }
 

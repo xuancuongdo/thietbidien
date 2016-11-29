@@ -1,8 +1,35 @@
-
+<?php $id_parrent=0; ?>
 <?php get_header(); ?>
 <?php echo do_shortcode("[all-nivoslider image_link='' theme='nivo-custome' ]"); ?>
 <div class="content">
 <section id="left-content" class="body-left">
+	<div class="box3">
+		<div class="title">
+			Chuyên mục
+		</div>
+		<div class="content">
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				<?php $id_parrent=$post->post_parent;?>
+			<?php endwhile;
+			endif;
+			?>	
+			<?php 
+				$query = new WP_Query( array( 'post_parent' => $id_parrent,'post_type' => 'page' ) );
+
+				while ($query->have_posts()) : $query->the_post(); 
+
+						 ?>
+						 	<div class="menusp_lv_0"><a href="" class=""> 
+	        					<?php the_title(); ?>
+	    					</a>
+						 	</div>
+	    					<?php
+						 endwhile ; 
+						 wp_reset_query() ;
+						?>
+
+		</div>
+	</div>
 		<div class="box3 box-marquee"> 
 			<div class="title">
         		Sản phẩm dịch vụ tiêu biểu
@@ -67,11 +94,24 @@
 		<?php get_sidebar(); ?>
 	</section>
 	<section id="main-content" class="body-center single-post">
-	<?php 
-			$categories = get_the_category();
-			echo '<div class="title"><h2>'.$categories[0]->name.'</h2></div>';
+		<?php 
+			// $categories = get_the_category();
+			// echo '<div class="title"><h2>'.$categories[0]->name.'</h2></div>';
+			// $cat_arr=array();
+
+			// foreach($categories as $cat_post) { 
+			// 					//print_r($cat_child);
+		 //    					// echo '<div class="menusp_lv_0"><a href="' . get_category_link( $cat_child->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $cat_child->name ) . '" ' . '>' . $cat_child->name.'</a> </div> ';
+		 //    					// echo '<p> Description:'. $cat_child->description . '</p>';
+		 //    					// echo '<p> Post Count: '. $cat_child->count . '</p>'; 
+		 //    					// print_r($cat_post) ;
+		 //    					 array_push($cat_arr,$cat_post->cat_ID);
+			// 				}
+							//print_r($cat_arr);
 		?>
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				<?php print_r($post); ?>
+				<div class="title"><h2><?php the_title(); ?></h2></div>
                 <?php get_template_part( 'content', get_post_format() ); ?>
                 <?php //get_template_part( 'author-bio' ); ?>
 				<?php //comments_template(); ?>
@@ -84,7 +124,9 @@
 
         <?php endif; ?>
 
+        
+
 	</section>
-	<div class="clear"></div>
+	<div class="clear"> </div>
 </div>
 <?php get_footer(); ?>

@@ -1,4 +1,4 @@
-
+<?php $id=0; ?>
 <?php get_header(); ?>
 <?php echo do_shortcode("[all-nivoslider image_link='' theme='nivo-custome' ]"); ?>
 <div class="content">
@@ -10,20 +10,29 @@
 			<div class="content">
 				<div class="menusp">
 						<?php 
-							$categories = get_the_category();
-							$category_id = $categories[0]->category_parent; 
-							if($category_id==0)$category_id=$categories[0]->cat_ID; 
-							//print_r($categories);
 
-							$args = array('child_of' => $category_id);
-							$categories_child = get_categories( $args );
-							//print_r($categories_child);
-							foreach($categories_child as $cat_child) { 
-								//print_r($cat_child);
-		    					echo '<div class="menusp_lv_0"><a href="' . get_category_link( $cat_child->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $cat_child->name ) . '" ' . '>' . $cat_child->name.'</a> </div> ';
-		    					// echo '<p> Description:'. $cat_child->description . '</p>';
-		    					// echo '<p> Post Count: '. $cat_child->count . '</p>';  
-							}
+							$menu = wp_get_nav_menu_items(212,array(
+							   'posts_per_page' => -1,
+							   'meta_key' => '_menu_item_object_id',
+							   'meta_value' => $post->ID // the currently displayed post
+							));
+
+							print_r($menu);
+							
+							// $categories = get_the_category();
+							// $category_id = $categories[0]->category_parent; 
+							// if($category_id==0)$category_id=$categories[0]->cat_ID; 
+							// //print_r($categories);
+
+							// $args = array('child_of' => $category_id);
+							// $categories_child = get_categories( $args );
+							// //print_r($categories_child);
+							// foreach($categories_child as $cat_child) { 
+							// 	//print_r($cat_child);
+		    	// 				echo '<div class="menusp_lv_0"><a href="' . get_category_link( $cat_child->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $cat_child->name ) . '" ' . '>' . $cat_child->name.'</a> </div> ';
+		    	// 				// echo '<p> Description:'. $cat_child->description . '</p>';
+		    	// 				// echo '<p> Post Count: '. $cat_child->count . '</p>';  
+							// }
 						?>
 					</div>
 			</div>
@@ -108,6 +117,7 @@
 							//print_r($cat_arr);
 		?>
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				<?php $id=$post->ID;?>
                 <?php get_template_part( 'content', get_post_format() ); ?>
                 <?php //get_template_part( 'author-bio' ); ?>
 				<?php //comments_template(); ?>
@@ -128,14 +138,15 @@
        	?>
 
        	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                <?php //get_template_part( 'content', get_post_format() ); ?>
-                <?php //get_template_part( 'author-bio' ); ?>
-				<?php //print_r($post) ?>
+
+       			<?php if($post->ID != $id):?>
+       			
 				<div class="Div_cactinkhac">
         			<a class="tieude_tin" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
           				<?php the_title(); ?>
         			</a>
       			</h1>
+      		<?php endif ?>
         <?php endwhile; ?>
 
         <?php else : ?>

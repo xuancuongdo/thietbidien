@@ -74,7 +74,7 @@
 			<section class="content">
 				<?php
 
-					$query = new WP_Query( array( 'name' => 'hello-world' ) );
+					$query = new WP_Query( array( 'name' => 'gioi-thieu','post_type' => 'page' ) );
 
 					 while ($query->have_posts()) : $query->the_post(); 
 					 	//get_template_part( 'content', get_post_format() ); 
@@ -100,7 +100,7 @@
 				$vnkings = new WP_Query(array(
 				'post_type'=>'post',
 				'post_status'=>'publish',
-				'cat' => 193,
+				'category_name' => 'tin-tuc-su-kien',
 				'orderby' => 'ID',
 				'order' => 'DESC',
 				'posts_per_page'=> 4));
