@@ -73,8 +73,8 @@ table, table tr, table td {
     background: #fff;
     position: relative;
 }
- #header{height: 100px;}
- #banner{height: 100px;background: url(img/banner_urenco10.jpg);}
+ #header{height: 110px;}
+ #banner{height: 110px;background: url(img/banner.png);}
  #header p, #header h1{margin: 0}
  .logo{
     float: left;
@@ -248,12 +248,12 @@ table, table tr, table td {
     float: right;
     border: none;
 }
-.box3 {
+.box3,.widget.widget_calendar {
     padding-bottom: 7px;
     background: url(img/box3-bottom-bg1.png) no-repeat 0px 100%;
     margin-bottom: 9px;
 }
-
+.calendar_wrap{padding:2px 12px}
 .box3 .title,.widget .widgettitle {
     background: url(img/box3-title-bg.png) no-repeat 0px 0;
     color: #fff;

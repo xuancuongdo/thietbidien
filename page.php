@@ -3,40 +3,41 @@
 <?php echo do_shortcode("[all-nivoslider image_link='' theme='nivo-custome' ]"); ?>
 <div class="content">
 <section id="left-content" class="body-left">
-	<div class="box3">
+	<!-- <div class="box3">
 		<div class="title">
 			Chuyên mục
 		</div>
-		<div class="content">
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<div class="content">-->
+			<?php //if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<?php 
-					$id_parrent=$post->post_parent;
-					$id_current=$post->ID;
+					// $id_parrent=$post->post_parent;
+					// $id_current=$post->ID;
 				?>
-			<?php endwhile;
-			endif;
+			 <?php
+			// endwhile;
+			// endif;
 			?>	
 			<?php 
-				if ($id_parrent==0) {
-					# code...
+				// if ($id_parrent==0) {
+				// 	# code...
 
-				}
-				$query = new WP_Query( array( 'post_parent' => $id_parrent,'post_type' => 'page' ) );
+				// }
+				// $query = new WP_Query( array( 'post_parent' => $id_parrent,'post_type' => 'page' ) );
 
-				while ($query->have_posts()) : $query->the_post(); 
+				// while ($query->have_posts()) : $query->the_post(); 
 
 						 ?>
-						 	<div class="menusp_lv_0"><a href="" class=""> 
-	        					<?php the_title(); ?>
+						 	<!-- <div class="menusp_lv_0"><a href="" class=""> 
+	        					<?php //the_title(); ?>
 	    					</a>
-						 	</div>
+						 	</div> -->
 	    					<?php
-						 endwhile ; 
-						 wp_reset_query() ;
+						 // endwhile ; 
+						 // wp_reset_query() ;
 						?>
 
-		</div>
-	</div>
+		<!-- /div>
+	</div> -->
 		<div class="box3 box-marquee"> 
 			<div class="title">
         		Sản phẩm dịch vụ tiêu biểu
@@ -117,7 +118,7 @@
 							//print_r($cat_arr);
 		?>
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<?php print_r($post); ?>
+				<?php //print_r($post); ?>
 				<div class="title"><h2><?php the_title(); ?></h2></div>
                 <?php get_template_part( 'content', get_post_format() ); ?>
                 <?php //get_template_part( 'author-bio' ); ?>

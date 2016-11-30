@@ -3,37 +3,40 @@
 <?php echo do_shortcode("[all-nivoslider image_link='' theme='nivo-custome' ]"); ?>
 <div class="content">
 <section id="left-content" class="body-left">
-		<div class="box3">
+		<!-- <div class="box3">
 			<div class="title">
 				Chuyên mục
 			</div>
 			<div class="content">
-				<div class="menusp">
+				<div class="menusp"> -->
 						<?php 
-							$current_menu= wp_get_nav_menu_items(212,array(
-							   'posts_per_page' => -1,
-							   //'meta_key' => '_menu_item_menu_item_parent',
-							   //'meta_key' => '_menu_item_object_id',
-							   //'menu-item-parent-id' => 1793 // the currently displayed post
-							   'meta_value' => $post->ID
-							));
-							$parent_menu_ID=$current_menu[0]->menu_item_parent;
-							$menus = wp_get_nav_menu_items(212,array(
-							   'posts_per_page' => -1,
-							   'meta_key' => '_menu_item_menu_item_parent',
-							   //'meta_key' => '_menu_item_object_id',
-							   //'menu-item-parent-id' => 1793 // the currently displayed post
-							   'meta_value' => $parent_menu_ID
-							));
-							foreach ($menus as $menu) {
-								# code...
-								print_r($menu->title);
-								print_r($menu->ID);
-								?>
-								<a href="<?php echo $menu->url;  ?>">link</a>
-								<hr>
+							// $current_menu= wp_get_nav_menu_items(176,array(
+							//    'posts_per_page' => -1,
+							//    //'meta_key' => '_menu_item_menu_item_parent',
+							//    'meta_key' => '_menu_item_object_id',
+							//    //'menu-item-parent-id' => 1793 // the currently displayed post
+							//    'meta_value' => $post->ID
+							// ));
+
+							// $parent_menu_ID=$current_menu[0]->menu_item_parent;
+							// print_r($current_menu);
+							// $menus = wp_get_nav_menu_items(176,array(
+							//    'posts_per_page' => -1,
+							//    'meta_key' => '_menu_item_menu_item_parent',
+							//    //'meta_key' => '_menu_item_object_id',
+							//    //'menu-item-parent-id' => 1793 // the currently displayed post
+							//    'meta_value' => $parent_menu_ID
+							// ));
+							// //print_r($menus);
+							// foreach ($menus as $menu) {
+							// 	# code...
+							// 	print_r($menu->title);
+							// 	print_r($menu->ID);
+							// 	?>
+							 	<!-- <a href="<?php //echo $menu->url;  ?>">link</a> -->
+								<!-- <hr> -->
 								<?php
-							}
+							// }
 							//print_r($menu);
 
 							// $categories = get_the_category();
@@ -51,9 +54,9 @@
 		    	// 				// echo '<p> Post Count: '. $cat_child->count . '</p>';  
 							// }
 						?>
-					</div>
+		<!-- 			</div>
 			</div>
-		</div>
+		</div> -->
 		<div class="box3 box-marquee"> 
 			<div class="title">
         		Sản phẩm dịch vụ tiêu biểu
